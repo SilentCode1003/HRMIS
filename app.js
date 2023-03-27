@@ -14,6 +14,9 @@ var trainingdevRouter = require('./routes/trainingdev');
 var payrollbenefitRouter = require('./routes/payrollbenefit');
 var timenattRouter = require('./routes/timenatt');
 var reportnanalRouter = require('./routes/reportnanal');
+var forgotpassRouter = require('./routes/forgotpass');
+var registerRouter = require('./routes/register');
+
 
 var app = express();
 
@@ -37,6 +40,8 @@ app.use('/trainingdev',trainingdevRouter);
 app.use('/payrollbenefit', payrollbenefitRouter);
 app.use('/timenatt',timenattRouter);
 app.use('/reportnanal', reportnanalRouter);
+app.use('/forgotpass',forgotpassRouter);
+app.use('/register',registerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
