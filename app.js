@@ -16,6 +16,7 @@ var timenattRouter = require('./routes/timenatt');
 var reportnanalRouter = require('./routes/reportnanal');
 var forgotpassRouter = require('./routes/forgotpass');
 var registerRouter = require('./routes/register');
+var chartsRouter = require('./routes/charts');
 
 
 var app = express();
@@ -42,6 +43,7 @@ app.use('/timenatt',timenattRouter);
 app.use('/reportnanal', reportnanalRouter);
 app.use('/forgotpass',forgotpassRouter);
 app.use('/register',registerRouter);
+app.use('/charts',chartsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,3 +62,9 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+  //default page
+
+  app.use('/', function(req, res) {
+    res.redirect('/login');
+});
