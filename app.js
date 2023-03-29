@@ -17,6 +17,8 @@ var reportnanalRouter = require('./routes/reportnanal');
 var forgotpassRouter = require('./routes/forgotpass');
 var registerRouter = require('./routes/register');
 var chartsRouter = require('./routes/charts');
+var applicantsRouter =require('./routes/applicants');
+var buttonsRouter = require('./routes/buttons');
 
 
 var app = express();
@@ -44,6 +46,8 @@ app.use('/reportnanal', reportnanalRouter);
 app.use('/forgotpass',forgotpassRouter);
 app.use('/register',registerRouter);
 app.use('/charts',chartsRouter);
+app.use ('/applicants',applicantsRouter);
+app.use('/buttons',buttonsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
