@@ -7,6 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var LoginRouter = require('./routes/login');
 var usersRouter = require('./routes/users');
+var employeeRouter = require('./routes/employee');
+var supervisorRouter = require('./routes/supervisor');
+var departmentRouter = require('./routes/department');
 var employeemanagementRouter = require('./routes/employeemanagement');
 var RecruitSelectRouter = require('./routes/RecruitSelect');
 var perfomancemanagementRouter = require('./routes/perfomancemanagement');
@@ -14,11 +17,13 @@ var trainingdevRouter = require('./routes/trainingdev');
 var payrollbenefitRouter = require('./routes/payrollbenefit');
 var timenattRouter = require('./routes/timenatt');
 var reportnanalRouter = require('./routes/reportnanal');
-var forgotpassRouter = require('./routes/forgotpass');
-var registerRouter = require('./routes/register');
-var chartsRouter = require('./routes/charts');
-var applicantsRouter =require('./routes/applicants');
-var buttonsRouter = require('./routes/buttons');
+var applicantsRouter = require('./routes/applicants');
+var jobtitleRouter = require('./routes/jobtitle');
+var employeetypeRouter = require('./routes/employeetype');
+var locationRouter = require('./routes/location');
+var governmentinfoRouter = require('./routes/governmentinfo');
+var educationalbgRouter = require('./routes/educationalbg');
+var accesstypeRoute = require('./routes/accesstype');
 
 
 var app = express();
@@ -36,6 +41,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/login', LoginRouter);
 app.use('/users', usersRouter);
+app.use('/employee',employeeRouter);
+app.use('/supervisor',supervisorRouter);
+app.use('/department',departmentRouter);
 app.use('/employeemanagement',employeemanagementRouter);
 app.use('/RecruitSelect',RecruitSelectRouter);
 app.use('/perfomancemanagement',perfomancemanagementRouter);
@@ -43,11 +51,12 @@ app.use('/trainingdev',trainingdevRouter);
 app.use('/payrollbenefit', payrollbenefitRouter);
 app.use('/timenatt',timenattRouter);
 app.use('/reportnanal', reportnanalRouter);
-app.use('/forgotpass',forgotpassRouter);
-app.use('/register',registerRouter);
-app.use('/charts',chartsRouter);
-app.use ('/applicants',applicantsRouter);
-app.use('/buttons',buttonsRouter);
+app.use('/applicants',applicantsRouter);
+app.use('/employeetype',employeetypeRouter);
+app.use('/location',locationRouter);
+app.use('/governmentinfo',governmentinfoRouter);
+app.use('/educationalbg',educationalbgRouter);
+app.use('/accesstype',accesstypeRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
