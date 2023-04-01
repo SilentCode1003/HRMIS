@@ -20,9 +20,9 @@ var reportnanalRouter = require('./routes/reportnanal');
 var applicantsRouter = require('./routes/applicants');
 var jobtitleRouter = require('./routes/jobtitle');
 var employeetypeRouter = require('./routes/employeetype');
-var locationRouter = require('./routes/location');
+var locationRouter = require('./routes/locations');
 var governmentinfoRouter = require('./routes/governmentinfo');
-var educationalbgRouter = require('./routes/educationalbg');
+var educationbgRouter = require('./routes/educationbg');
 var accesstypeRoute = require('./routes/accesstype');
 
 
@@ -42,6 +42,7 @@ app.use('/', indexRouter);
 app.use('/login', LoginRouter);
 app.use('/users', usersRouter);
 app.use('/employee',employeeRouter);
+app.use('/jobtitle',jobtitleRouter);
 app.use('/supervisor',supervisorRouter);
 app.use('/department',departmentRouter);
 app.use('/employeemanagement',employeemanagementRouter);
@@ -53,9 +54,9 @@ app.use('/timenatt',timenattRouter);
 app.use('/reportnanal', reportnanalRouter);
 app.use('/applicants',applicantsRouter);
 app.use('/employeetype',employeetypeRouter);
-app.use('/location',locationRouter);
+app.use('/locations',locationRouter);
 app.use('/governmentinfo',governmentinfoRouter);
-app.use('/educationalbg',educationalbgRouter);
+app.use('/educationbg',educationbgRouter);
 app.use('/accesstype',accesstypeRoute);
 
 // catch 404 and forward to error handler
