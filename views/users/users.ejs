@@ -1,31 +1,47 @@
-<h1>Users masterlist</h1>
-
+<h1>Employee List</h1>
+<h6>A complete list of Employees</h6>
 <div class="card shadow mb-4">
-	<div class="card-header py-3">
-		<h6 class="m-0 font-weight-bold text-primary">Employees</h6>
-	</div>
-	<div class="card-body">
-		<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-				<thead>
-<button id="addRow">Add new row</button>
-    <table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Department</th>
-                <th>Progress</th>
-                <th>Work</th>
-                <th>Remarks</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
-                <th>Column 3</th>
-                <th>Column 4</th>
-                <th>Column 5</th>
-            </tr>
-        </tfoot>
-    </table>
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <p style="text-align:left;">Date/Time: <span id="time"> </span></p>
+                    <form>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name"><br>
+                    <label for="department">Department:</label><br>
+                    <input type="text" id="department" name="department"><br>
+                    <label for="timein">Work:</label><br>
+                    <input type="text" id="work" name="work"><br>
+                    <label for="timeout">ID:</label><br>
+                    <input type="text" id="timeout" name="id"><br>
+                    <label for="remarks">Remarks:</label><br>
+                    <input type="text" id="remarks" name="remarks"><br>
+                    <input type="submit" value="Submit"><input type="reset"><br>
+                    <table id="example" class="display" style="width:100%">
+                    </form>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Work</th>
+                                <th>ID</th>
+                                <th>Remarks</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td><button type="button">Edit</button><button type="button">Remove</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </thead>nst
