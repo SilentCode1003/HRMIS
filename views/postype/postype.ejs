@@ -1,0 +1,47 @@
+<h1>Position Type</h1>
+<h6>A list of Positions</h6>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Positions</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <p style="text-align:left;">Date/Time: <span id="time"> </span></p>
+                    <form>
+                        <label for="name">Position Code:</label><br>
+                        <input type="text" id="mpt_positioncode" name="positioncode"><br>
+                        <label for="department">Position Name:</label><br>
+                        <input type="text" id="mpt_positionname" name="positionname"><br>
+                        <label for="timein">Status:</label><br>
+                        <input type="text" id="mpt_status" name="status"><br>
+                        <label for="timeout">Created Date:</label><br>
+                        <input type="text" id="mpt_createddate" name="createddate"><br>
+                        <label for="remarks">Created By:</label><br>
+                        <input type="text" id="mpt_createdby" name="createdby"><br>
+                        <input type="submit" value="Submit"><input type="reset"><br>
+                        <table id="example" class="display" style="width:100%">
+                    </form>
+                        <thead>
+                            <tr>
+                                <th>Department Code</th>
+                                <th>Department Name</th>
+                                <th>Status</th>
+                                <th>Created Date</th>
+                                <th>Created By</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td><button type="button">Edit</button><button type="button">Remove</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </thead>

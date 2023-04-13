@@ -1,0 +1,49 @@
+<h1>Attendance List</h1>
+<h6>A complete list of Attendance</h6>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <p style="text-align:left;">Date/Time: <span id="time"> </span></p>
+                    <form>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="Name"><br>
+                    <label for="department">Department:</label><br>
+                    <input type="text" id="department" name="Department"><br>
+                    <label for="timein">Time IN:</label><br>
+                    <input type="text" id="timein" name="Time In"><br>
+                    <label for="timeout">Time OUT:</label><br>
+                    <input type="text" id="timeout" name="Time Out"><br>
+                    <label for="remarks">Remarks:</label><br>
+                    <input type="text" id="remarks" name="Remarks"><br>
+                    <input type="submit" value="Submit"><input type="reset"><br>
+                    <table id="example" class="display" style="width:100%">
+                    </form>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>IN</th>
+                                <th>OUT</th>
+                                <th>Remarks</th>
+                                <th>Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>JC Gerodias</td>
+                                <td>IT Department</td>
+                                <td>7:35</td>
+                                <td>5:00</td>
+                                <td>Never absent, but absent minded</td>
+     
+                                <td>04/05/23<td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </thead>
