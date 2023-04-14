@@ -1,0 +1,35 @@
+body
+  margin 50px
+
+.jumbotron
+  background #ffffff
+
+.fa
+  font-size 0.5em
+
+table
+  width 100%
+
+th
+  text-align center
+
+td
+  width 120px
+  height 100px
+  text-align center
+  line-height 100px !important
+  font-size 1.5em
+
+td, #year
+  font-family monospace
+
+.hover
+  background #eeeeee
+
+#about
+  font-size 5.0em !important
+  position absolute
+  top -35px
+  right 15px
+  a
+    text-decoration none

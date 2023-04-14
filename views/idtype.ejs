@@ -25,14 +25,14 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-info topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-info bg-white topbar mb-4 static-top shadow">
                     <%- include('topbar.ejs') %>
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <%- include('./RecruitSelect/RecruitSelect.ejs') %>
+                    <%- include('./idtype/idtype.ejs') %>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -68,15 +68,12 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/login">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
     <%- include('script.ejs') %>
-    <%- include('./RecruitSelect/recsecscript.ejs') %>
+    <%- include('./idtype/idtypescript.ejs') %>
 </body>
-
-</html>
-<!--177013 is a very trajic story-->
