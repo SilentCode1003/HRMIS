@@ -27,6 +27,7 @@ var accesstypeRoute = require('./routes/accesstype');
 var idtypeRouter = require('./routes/idtype');
 var postypeRouter = require('./routes/postype');
 var roletypeRouter = require('./routes/roletype');
+var userclientRouter = require('./routes/userclient');
 
 
 var app = express();
@@ -64,6 +65,7 @@ app.use('/accesstype',accesstypeRoute);
 app.use('/idtype', idtypeRouter);
 app.use('/postype',postypeRouter);
 app.use('/roletype',roletypeRouter);
+app.use('/client',userclientRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
