@@ -3,7 +3,7 @@
 
 <head>
 
-<%- include('header.ejs') %>
+    <%- include('header.ejs') %>
 
 </head>
 
@@ -13,7 +13,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-info sidebar sidebar-dark accordion" id="accordionSidebar">
             <%- include('sidebar.ejs') %>
         </ul>
         <!-- End of Sidebar -->
@@ -25,7 +25,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-info topbar mb-4 static-left shadow">
+                <nav class="navbar navbar-expand navbar-light bg-info topbar mb-4 static-top shadow">
                     <%- include('topbar.ejs') %>
                 </nav>
                 <!-- End of Topbar -->
@@ -41,7 +41,7 @@
 
             <!-- Footer -->
             <%- include('footer.ejs') %>
-            <!-- End of Footer -->
+                <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -74,7 +74,6 @@
         </div>
     </div>
 
-    <%- include('script.ejs') %> <!--GLOBAL SCRIPT-->
-    <%- include('./dashboard/dashboardScript.ejs') %> <!--TARGET SPECIFIC PAGE SCRIPT-->
-    </body>
-</html>
+    <%- include('script.ejs') %>
+    <%- include('./dashboard/dashboardscript.ejs') %>
+</body>
