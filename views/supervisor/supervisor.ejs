@@ -1,4 +1,4 @@
-<h1>Supervisors List</h1>
+<!--<h1>Supervisors List</h1>
 <h6>A complete list of Supervisors</h6>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -44,4 +44,55 @@
                             </tr>
                         </tbody>
                     </table>
-                </thead>
+            </thead>-->
+<h1>Supervisors</h1>
+<h6>A complete list of Supervisors</h6>
+<p style="text-align:left;">Date/Time: <span id="time"> </span></p>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-5 col-lg-5 col-sm-5">
+            <form>
+                <label for="idimage">ID Picture:</label><br>
+                <img id="blah" src="images/IDPH.webp" style="width:110%;max-width:200px; height: 200px"><br>
+                <input type="file"
+                    onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+            </form>
+        </div>
+        <div class="col-xl-5 col-lg-5 col-sm-5">
+            <form>
+                <input type="text" placeholder="Name" id="name" name="name">
+                <input type="text" placeholder="Department" id="department" name="department">
+                <input type="text" placeholder="Work" id="work" name="work">
+                <input type="text" placeholder="ID" id="S-ID" name="id">
+                <input type="text" placeholder="Remarks" id="remarks" name="remarks">
+                <div></div>
+                <input type="submit" value="Add"><input type="reset">
+            </form>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <table class="table">
+        <thead>
+            <th>ID Image</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Work</th>
+            <th>ID</th>
+            <th>Remarks</th>
+            <th>Options</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><button type="button">Edit</button><button type="button">Remove</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
