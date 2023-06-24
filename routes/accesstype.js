@@ -20,8 +20,8 @@ module.exports = router;
 
 router.get("/load", (req, res) => {
   try {
-    let sql = `select * from master_accesstype`;
-    mysql.Select(sql, "MasterAccesstype", (err, result) => {
+    let sql = `select * from master_access_type`;
+    mysql.Select(sql, "MasterAccessType", (err, result) => {
       if (err) console.error("Error: ", err);
 
       console.log(result);
@@ -34,19 +34,23 @@ router.get("/load", (req, res) => {
 
 router.post("/save", (req, res) => {
   try {
-    let departmentname = req.body.departmentname;
+    let accesstypename = req.body.accesstypename;
     let status = dictionary.GetValue(dictionary.ACT());
     let createdby = "DEV42";
     let createddate = helper.GetCurrentDatetime();
-    let master_department = [];
+    let master_access_type = [];
 
-    master_department.push([departmentname, status, createdby, createddate]);
-    mysql.InsertTable("master_department", master_department, (err, result) => {
-      if (err) console.error("Error: ", err);
+    master_access_type.push([accesstypename, status, createdby, createddate]);
+    mysql.InsertTable(
+      "master_access_type",
+      master_access_type,
+      (err, result) => {
+        if (err) console.error("Error: ", err);
 
-      console.log(result);
-      res.json({ msg: "success" });
-    });
+        console.log(result);
+        res.json({ msg: "success" });
+      }
+    );
   } catch (error) {
     res.json({ msg: error });
   }
@@ -54,20 +58,20 @@ router.post("/save", (req, res) => {
 
 router.post("/edit", (req, res) => {
   try {
-    let departmentnamemodal = req.body.departmentnamemodal;
-    let departmentcode = req.body.departmentcode;
+    let accesstypenamemodal = req.body.accesstypenamemodal;
+    let accesstypecode = req.body.accesstypecode;
 
-    let data = [departmentnamemodal, departmentcode];
+    let data = [accesstypenamemodal, accesstypecode];
 
-    let sql_Update = `UPDATE master_department 
-                     SET md_departmentname = ?
-                     WHERE md_departmentcode = ?`;
+    let sql_Update = `UPDATE master_access_type 
+                     SET mat_accessname = ?
+                     WHERE mat_accesscode = ?`;
 
-    let sql_check = `SELECT * FROM master_department WHERE md_departmentcode='${departmentcode}'`;
+    let sql_check = `SELECT * FROM master_access_type WHERE mat_accesscode='${accesstypecode}'`;
 
     console.log(data);
 
-    mysql.Select(sql_check, "MasterDepartment", (err, result) => {
+    mysql.Select(sql_check, "MasterAccessType", (err, result) => {
       if (err) console.error("Error: ", err);
 
       if (result.length != 1) {
@@ -95,16 +99,16 @@ router.post("/edit", (req, res) => {
 
 router.post("/status", (req, res) => {
   try {
-    let departmentcode = req.body.departmentcode;
+    let accesstypecode = req.body.accesstypecode;
     let status =
       req.body.status == dictionary.GetValue(dictionary.ACT())
         ? dictionary.GetValue(dictionary.INACT())
         : dictionary.GetValue(dictionary.ACT());
-    let data = [status, departmentcode];
+    let data = [status, accesstypecode];
 
-    let sql_Update = `UPDATE master_department 
-                     SET md_status = ?
-                     WHERE md_departmentcode = ?`;
+    let sql_Update = `UPDATE master_access_type 
+                     SET mat_status = ?
+                     WHERE mat_accesscode = ?`;
 
     console.log(data);
 
