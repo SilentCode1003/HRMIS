@@ -76,88 +76,48 @@ exports.Select = (sql, table, callback) => {
         callback(null, model.MasterUser(results));
       }
 
-      if (table == "MasterRole") {
-        callback(null, model.MasterRole(results));
+      if (table == "MasterRoleType") {
+        callback(null, model.MasterRoleType(results));
       }
 
-      if (table == "MasterPosition") {
-        callback(null, model.MasterPosition(results));
+      if (table == "MasterPositionType") {
+        callback(null, model.MasterPositionType(results));
       }
 
       if (table == "MasterDepartment") {
         callback(null, model.MasterDepartment(results));
       }
 
-      if (table == "MasterClient") {
-        callback(null, model.MasterClient(results));
+      if (table == "MasterIDType") {
+        callback(null, model.MasterDepartment(results));
       }
 
-      if (table == "MasterConcernType") {
-        callback(null, model.MasterConcernType(results));
+      if (table == "MasterAccessType") {
+        callback(null, model.MasterAccessType(results));
       }
 
-      if (table == "MasterPersonel") {
-        callback(null, model.MasterPersonel(results));
+      if (table == "EmployeeDetails") {
+        callback(null, model.EmployeeDetails(results));
       }
 
-      if (table == "MasterPriorityType") {
-        callback(null, model.MasterPriorityType(results));
+      if (table == "EmployementDetails") {
+        callback(null, model.EmployementDetails(results));
       }
 
-      if (table == "MasterUrgencyType") {
-        callback(null, model.MasterUrgencyType(results));
+      if (table == "EmployeeEducation") {
+        callback(null, model.EmployeeEducation(results));
       }
 
-      if (table == "MasterLocation") {
-        callback(null, model.MasterLocation(results));
+      if (table == "EmployeeWorkExperience") {
+        callback(null, model.EmployeeWorkExperience(results));
       }
 
-      if (table == "MasterStatus") {
-        callback(null, model.MasterStatus(results));
+      if (table == "EmployeeReference") {
+        callback(null, model.EmployeeReference(results));
       }
 
-      if (table == "MasterIssue") {
-        callback(null, model.MasterIssue(results));
-      }
-
-      if (table == "MasterPriorityDue") {
-        callback(null, model.MasterPriorityDue(results));
-      }
-
-      if (table == "RequestTicketDetail") {
-        callback(null, model.RequestTicketDetail(results));
-      }
-
-      if (table == "MasterFilter") {
-        callback(null, model.MasterFilter(results));
-      }
-
-      if (table == "TicketComment") {
-        callback(null, model.TicketComment(results));
-      }
-
-      if (table == "TicketUpdate") {
-        callback(null, model.TicketUpdate(results));
-      }
-
-      if (table == "AssignTicketDetail") {
-        callback(null, model.AssignTicketDetail(results));
-      }
-
-      if (table == "ClientRequestTicketDetails") {
-        callback(null, model.ClientRequestTicketDetails(results));
-      }
-
-      if (table == "RequestChildTicketDetail") {
-        callback(null, model.RequestChildTicketDetail(results));
-      }
-
-      if (table == "KnowledgeBase") {
-        callback(null, model.KnowledgeBase(results));
-      }
-
-      if (table == "MasterCategory") {
-        callback(null, model.MasterCategory(results));
+      if (table == "EmployeeGovernmentID") {
+        callback(null, model.EmployeeGovernmentID(results));
       }
     });
   } catch (error) {
@@ -284,8 +244,8 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_role") {
-    let sql = `INSERT INTO master_role(
+  if (tablename == "master_role_type") {
+    let sql = `INSERT INTO master_role_type(
             mr_rolename,
             mr_status,
             mr_createdby,
@@ -299,8 +259,8 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_position") {
-    let sql = `INSERT INTO master_position(
+  if (tablename == "master_position_type") {
+    let sql = `INSERT INTO master_position_type(
             mp_positionname,
             mp_status,
             mp_createdby,
@@ -329,16 +289,12 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_client") {
-    let sql = `INSERT INTO master_client(
-            mc_fullname,
-            mc_username,
-            mc_password,
-            mc_email,
-            mc_contactnumber,
-            mc_status,
-            mc_createdby,
-            mc_createddate) VALUES ?`;
+  if (tablename == "master_access_type") {
+    let sql = `INSERT INTO master_access_type(
+            mat_accessname,
+            mat_status,
+            mat_createdby,
+           mat_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {
@@ -348,12 +304,12 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_concern_type") {
-    let sql = `INSERT INTO master_concern_type(
-            mct_concernname,
-            mct_status,
-            mct_createdby,
-            mct_createddate) VALUES ?`;
+  if (tablename == "master_id_type") {
+    let sql = `INSERT INTO master_id_type(
+            mit_idname,
+            mit_status,
+            mit_createdby,
+            mit_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {
@@ -363,16 +319,15 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_personel") {
-    let sql = `INSERT INTO master_personel(
-            mp_fullname,
-            mp_department,
-            mp_role,
-            mp_position,
-            mp_location,
-            mp_status,
-            mp_createdby,
-            mp_createddate) VALUES ?`;
+  if (tablename == "master_user") {
+    let sql = `INSERT INTO master_user(
+              mu_fullname,
+              mu_password,
+              mu_accesstype,
+              mu_roletype,
+              mu_status,
+              mu_createdby,
+              mu_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {
@@ -382,12 +337,23 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_priority_type") {
-    let sql = `INSERT INTO master_priority_type(
-            mpt_priorityname,
-            mpt_status,
-            mpt_createdby,
-            mpt_createddate) VALUES ?`;
+  if (tablename == "employee_details") {
+    let sql = `INSERT INTO employee_details(
+            ed_firstname,
+            ed_middlename,
+            ed_lastname,
+            ed_gender,
+            ed_dateofbirth,
+            ed_address,
+            ed_contactnumber,
+            ed_email,
+            ed_nationality,
+            ed_maritalstatus,
+            ed_emergencycontact name,
+            ed_emergencycontactnumber,
+            ed_status,
+            ed_createdby,
+            ed_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {
@@ -397,12 +363,18 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_urgency_type") {
-    let sql = `INSERT INTO master_urgency_type(
-            mut_urgencyname,
-            mut_status,
-            mut_createdby,
-            mut_createddate) VALUES ?`;
+  if (tablename == "employement_details") {
+    let sql = `INSERT INTO employement_details(
+            emd_employeeid,
+            emd_department,
+            emd_dateofhire,
+            emd_employmentstatus,
+            emd_salary,
+            emd_probationperiod,
+            emd_performancereviewschedule,
+            emd_status,
+            emd_createdby,
+            emd_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {
@@ -412,12 +384,16 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_location") {
-    let sql = `INSERT INTO master_location(
-            ml_locationname,
-            ml_status,
-            ml_createdby,
-            ml_createddate) VALUES ?`;
+  if (tablename == "employee_education") {
+    let sql = `INSERT INTO employee_education(
+            ee_employeeid,
+            ee_degree,
+            ee_fieldofstudy,
+            ee_institution,
+            ee_graduationdate,
+            ee_status,
+            ee_createdby,
+            ee_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {
@@ -427,12 +403,17 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_status") {
-    let sql = `INSERT INTO master_status(
-            ms_statusname,
-            ms_status,
-            ms_createdby,
-            ms_createddate) VALUES ?`;
+  if (tablename == "employee_work_experience") {
+    let sql = `INSERT INTO employee_work_experience(
+            ewe_employeeid,
+            ewe_company,
+            ewe_jobtitle,
+            ewe_startdate,
+            ewe_enddate,
+            ewe_jobdescription,
+            ewe_status,
+            ewe_createdby,
+            ewe_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {
@@ -442,13 +423,15 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_issue") {
-    let sql = `INSERT INTO master_issue(
-            mi_issuename,
-            mi_concernname,
-            mi_status,
-            mi_createdby,
-            mi_createddate) VALUES ?`;
+  if (tablename == "employee_reference") {
+    let sql = `INSERT INTO employee_reference(
+            er_employeeid,
+            er_referencename,
+            er_relationship,
+            er_contactinfo,
+            er_status,
+            er_createdby,
+            er_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {
@@ -458,192 +441,16 @@ exports.InsertTable = (tablename, data, callback) => {
     });
   }
 
-  if (tablename == "master_priority_due") {
-    let sql = `INSERT INTO master_priority_due(
-            mpd_priorityname,
-            mpd_day,
-            mpd_hour,
-            mpd_status,
-            mpd_createdby,
-            mpd_createddate) VALUES ?`;
-
-    this.Insert(sql, data, (err, result) => {
-      if (err) {
-        callback(err, null);
-      }
-      callback(null, result);
-    });
-  }
-
-  if (tablename == "request_ticket_detail") {
-    let sql = `INSERT INTO request_ticket_detail(
-            td_ticketid,
-            td_subject,
-            td_concern,
-            td_issue,
-            td_requestername,
-            td_requesteremail,
-            td_description,
-            td_priority,
-            td_ticketstatus,
-            td_datecreated,
-            td_duedate,
-            td_statusdetail,
-            td_assignedto,
-            td_department,
-            td_attachement,
-            td_comment) VALUES ?`;
-
-    this.Insert(sql, data, (err, result) => {
-      if (err) {
-        callback(err, null);
-      }
-      callback(null, result);
-    });
-  }
-
-  if (tablename == "master_filter") {
-    let sql = `INSERT INTO master_filter(
-            mf_filtername,
-            mf_isticketid,
-            mf_issubject,
-            mf_isconcern,
-            mf_isissue,
-            mf_isrequestername,
-            mf_isrequesteremail,
-            mf_isdescription,
-            mf_ispriority,
-            mf_isticketstatus,
-            mf_isdatecreated,
-            mf_isduedate,
-            mf_isstatusdetail,
-            mf_isassignto,
-            mf_isdepartment,
-            mf_isattachement,
-            mf_iscomment,
-            mf_status,
-            mf_createdby,
-            mf_createddate) VALUES ?`;
-
-    this.Insert(sql, data, (err, result) => {
-      if (err) {
-        callback(err, null);
-      }
-      callback(null, result);
-    });
-  }
-
-  if (tablename == "ticket_comment") {
-    let sql = `INSERT INTO ticket_comment(
-            tc_ticketid,
-            tc_comment,
-            tc_attachement,
-            tc_status,
-            tc_commentby,
-            tc_commentdate) VALUES ?`;
-
-    this.Insert(sql, data, (err, result) => {
-      if (err) {
-        callback(err, null);
-      }
-      callback(null, result);
-    });
-  }
-
-  if (tablename == "ticket_update") {
-    let sql = `INSERT INTO ticket_update(
-            tu_ticketid,
-            tu_previousticketstatus,
-            tu_currentticketstatus,
-            tu_commentby,
-            tu_commentdate) VALUES ?`;
-
-    this.Insert(sql, data, (err, result) => {
-      if (err) {
-        callback(err, null);
-      }
-      callback(null, result);
-    });
-  }
-
-  if (tablename == "assign_ticket_details") {
-    let sql = `INSERT INTO assign_ticket_details(
-            atd_assigndate,
-            atd_assignto,
-            atd_ticketid,
-            atd_ticketstatus,
-            atd_reportdate,
-            atd_status,
-            atd_assignby) VALUES ?`;
-
-    this.Insert(sql, data, (err, result) => {
-      if (err) {
-        callback(err, null);
-      }
-      callback(null, result);
-    });
-  }
-
-  if (tablename == "client_request_ticket_details") {
-    let sql = `INSERT INTO client_request_ticket_details(
-                ctrd_requestid,
-                ctrd_requestby,
-                ctrd_requestdate,
-                ctrd_concern,
-                ctrd_issue,
-                ctrd_description,
-                ctrd_attachement,
-                ctrd_status,
-                ctrd_createddate) VALUES ?`;
-
-    this.Insert(sql, data, (err, result) => {
-      if (err) {
-        callback(err, null);
-      }
-      callback(null, result);
-    });
-  }
-
-  if (tablename == "request_child_ticket_detail") {
-    let sql = `INSERT INTO request_child_ticket_detail(
-              ctd_referenceid,
-              ctd_ticketid,
-              ctd_ticketstatus,
-              ctd_datecreated,
-              ctd_assignedto) VALUES ?`;
-
-    this.Insert(sql, data, (err, result) => {
-      if (err) {
-        callback(err, null);
-      }
-      callback(null, result);
-    });
-  }
-
-  if (tablename == "knowledge_base") {
-    let sql = `INSERT INTO knowledge_base(
-              kb_title,
-              kb_category,
-              kb_content,
-              kb_attachment,
-              kb_status,
-              kb_postby,
-              kb_postdate) VALUES ?`;
-
-    this.Insert(sql, data, (err, result) => {
-      if (err) {
-        callback(err, null);
-      }
-      callback(null, result);
-    });
-  }
-
-  if (tablename == "master_category") {
-    let sql = `INSERT INTO master_category(
-                mc_categoryname,
-                mc_status,
-                mc_createdby,
-                mc_createddate) VALUES ?`;
+  if (tablename == "employee_government_id") {
+    let sql = `INSERT INTO employee_government_id(
+            egi_employeeid,
+            egi_sssid,
+            egi_pagibigid,
+            egi_philhealth,
+            egi_tinid,
+            egi_status,
+            egi_createdby,
+            egi_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {
