@@ -246,10 +246,10 @@ exports.InsertTable = (tablename, data, callback) => {
 
   if (tablename == "master_role_type") {
     let sql = `INSERT INTO master_role_type(
-            mr_rolename,
-            mr_status,
-            mr_createdby,
-            mr_createddate) VALUES ?`;
+            mrt_rolename,
+            mrt_status,
+            mrt_createdby,
+            mrt_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {
@@ -261,10 +261,10 @@ exports.InsertTable = (tablename, data, callback) => {
 
   if (tablename == "master_position_type") {
     let sql = `INSERT INTO master_position_type(
-            mp_positionname,
-            mp_status,
-            mp_createdby,
-            mp_createddate) VALUES ?`;
+            mpt_positionname,
+            mpt_status,
+            mpt_createdby,
+            mpt_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {

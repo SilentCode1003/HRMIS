@@ -10,6 +10,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var departmentRouter = require("./routes/department");
 var accesstypeRouter = require("./routes/accesstype");
+var roletypeRouter = require("./routes/roletype");
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/department", departmentRouter);
 app.use("/accesstype", accesstypeRouter);
+app.use("/roletype", roletypeRouter);
 
 mysql.CheckConnection();
 

@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <!-- PCreated by Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-3">
-    <h1 class="page-title">Access Type</h1>
+    <h1 class="page-title">Role Type</h1>
   </div>
   <!-- Content Row -->
   <div class="row mb-2">
@@ -10,18 +10,18 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <label class="form-label" for="md_accesstypename"
-              >Access Type Name</label
+            <label class="form-label" for="md_roletypename"
+              >Role Type Name</label
             >
           </div>
           <div class="row">
             <div class="col-md-8">
               <input
-                id="accesstypename"
-                name="accesstypename"
+                id="roletypename"
+                name="roletypename"
                 type="text"
                 class="form-control"
-                placeholder="Enter your access type name"
+                placeholder="Enter your role type name"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
               />
@@ -51,14 +51,14 @@
       <div class="table-responsive">
         <table
           class="table table-bordered"
-          id="accesstype-dataTable"
+          id="roletype-dataTable"
           width="100%"
           cellspacing="10"
         >
           <thead>
             <tr>
-              <th class="col-1 text-start">Access Type Code</th>
-              <th class="col-3 text-center">Access Type Name</th>
+              <th class="col-1 text-start">Role Type Code</th>
+              <th class="col-3 text-center">Role Type Name</th>
               <th class="col-1 text-center">Status</th>
               <th class="col-3 text-center">Created by</th>
               <th class="col-2 text-center">Created date</th>
@@ -76,7 +76,7 @@
 <!-- Modal -->
 <div
   class="modal fade bd-example-modal-lg"
-  id="accesstypeModal"
+  id="roletypeModal"
   tabindex="-1"
   role="dialog"
   aria-labelledby="exampleModalLabel"
@@ -87,7 +87,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Access Name</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Role Name</h5>
       </div>
       <div class="modal-body">
         <div class="row mb-2">
@@ -95,15 +95,13 @@
             <div class="card-body">
               <div class="row mb-2">
                 <div class="col-md-12">
-                  <label class="form-label" for="accesstypecode"
-                    >Access Code</label
-                  >
+                  <label class="form-label" for="roletypecode">Role Code</label>
                   <input
-                    id="accesstypecode"
-                    name="accesstypecode"
+                    id="roletypecode"
+                    name="roletypecode"
                     type="text"
                     class="form-control"
-                    placeholder="Enter new access type"
+                    placeholder="Enter new role type"
                     aria-label="fullname"
                     aria-describedby="basic-addon1"
                     disabled
@@ -112,15 +110,15 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <label class="form-label" for="accesstypenamemodal"
-                    >Access Name</label
+                  <label class="form-label" for="roletypenamemodal"
+                    >Role Name</label
                   >
                   <input
-                    id="accesstypenamemodal"
-                    name="accesstypenamemodal"
+                    id="roletypenamemodal"
+                    name="roletypenamemodal"
                     type="text"
                     class="form-control"
-                    placeholder="Enter new access type"
+                    placeholder="Enter new roletype"
                     aria-label="fullname"
                     aria-describedby="basic-addon1"
                   />
