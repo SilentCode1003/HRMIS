@@ -321,17 +321,18 @@ exports.InsertTable = (tablename, data, callback) => {
 
   if (tablename == "employee_details") {
     let sql = `INSERT INTO employee_details(
+            ed_employeeid,
             ed_firstname,
             ed_middlename,
             ed_lastname,
             ed_gender,
             ed_dateofbirth,
             ed_address,
-            ed_contactnumber,
+            ed_cellphonenumber,
             ed_email,
             ed_nationality,
             ed_maritalstatus,
-            ed_emergencycontact name,
+            ed_emergencycontactname,
             ed_emergencycontactnumber,
             ed_status,
             ed_createdby,

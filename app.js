@@ -14,6 +14,12 @@ var roletypeRouter = require("./routes/roletype");
 var positionRouter = require("./routes/position");
 var usersRouter = require("./routes/users");
 var idtypeRouter = require("./routes/idtype");
+var employeedetailsRouter = require("./routes/employeedetails");
+var employeeeducationRouter = require("./routes/employeeeducation");
+var employeeworkexperienceRouter = require("./routes/employeeworkexperience");
+var employeereferenceRouter = require("./routes/employeereference");
+var employeegovernmentidRouter = require("./routes/employeegovernmentid");
+var employmentdetailsRouter = require("./routes/employmentdetails");
 
 var app = express();
 
@@ -35,6 +41,12 @@ app.use("/roletype", roletypeRouter);
 app.use("/position", positionRouter);
 app.use("/users", usersRouter);
 app.use("/idtype", idtypeRouter);
+app.use("/employeedetails", employeedetailsRouter);
+app.use("/employeeeducation", employeeeducationRouter);
+app.use("/employeegovernmentid", employeegovernmentidRouter);
+app.use("/employeereference", employeereferenceRouter);
+app.use("/employeeworkexperience", employeeworkexperienceRouter);
+app.use("/employmentdetails", employmentdetailsRouter);
 
 mysql.CheckConnection();
 
