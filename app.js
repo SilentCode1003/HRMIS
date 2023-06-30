@@ -13,7 +13,7 @@ var accesstypeRouter = require("./routes/accesstype");
 var roletypeRouter = require("./routes/roletype");
 var positionRouter = require("./routes/position");
 var usersRouter = require("./routes/users");
-
+var idtypeRouter = require("./routes/idtype");
 
 var app = express();
 
@@ -34,6 +34,7 @@ app.use("/accesstype", accesstypeRouter);
 app.use("/roletype", roletypeRouter);
 app.use("/position", positionRouter);
 app.use("/users", usersRouter);
+app.use("/idtype", idtypeRouter);
 
 mysql.CheckConnection();
 

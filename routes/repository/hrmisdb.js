@@ -89,7 +89,7 @@ exports.Select = (sql, table, callback) => {
       }
 
       if (table == "MasterIDType") {
-        callback(null, model.MasterDepartment(results));
+        callback(null, model.MasterIDType(results));
       }
 
       if (table == "MasterAccessType") {
