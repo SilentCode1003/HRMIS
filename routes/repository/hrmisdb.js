@@ -230,8 +230,8 @@ exports.InsertTable = (tablename, data, callback) => {
             mu_fullname,
             mu_username,
             mu_password,
-            mu_role,
-            mu_position,
+            mu_accesstype,
+            mu_roletype,
             mu_status,
             mu_createdby,
             mu_createddate) VALUES ?`;
@@ -310,24 +310,6 @@ exports.InsertTable = (tablename, data, callback) => {
             mit_status,
             mit_createdby,
             mit_createddate) VALUES ?`;
-
-    this.Insert(sql, data, (err, result) => {
-      if (err) {
-        callback(err, null);
-      }
-      callback(null, result);
-    });
-  }
-
-  if (tablename == "master_user") {
-    let sql = `INSERT INTO master_user(
-              mu_fullname,
-              mu_password,
-              mu_accesstype,
-              mu_roletype,
-              mu_status,
-              mu_createdby,
-              mu_createddate) VALUES ?`;
 
     this.Insert(sql, data, (err, result) => {
       if (err) {

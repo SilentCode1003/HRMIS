@@ -1,0 +1,258 @@
+<!-- Begin PCreated by Content -->
+<div class="container-fluid">
+  <!-- PCreated by Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-3">
+    <h1 class="page-title">Users</h1>
+  </div>
+  <!-- Content Row -->
+  <div class="row mb-2">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-md-6">
+              <label class="form-label" for="fullname">Fullname</label>
+              <input
+                id="fullname"
+                name="fullname"
+                type="text"
+                class="form-control"
+                placeholder="Enter Fullname"
+                aria-label="fullname"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-md-6">
+              <label class="form-label" for="username">Username</label>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                class="form-control"
+                placeholder="Enter Username"
+                aria-label="username"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="password">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                class="form-control"
+                placeholder="Enter Password"
+                aria-label="password"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-md-6">
+              <label class="form-label" for="accesstypelist">Access Type</label>
+              <select
+                class="entry-input form-control mb-2"
+                name="accesstypelist"
+                id="accesstypelist"
+              >
+                <option value="">- - - Select Access - - -</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="roletypelist">Role Type</label>
+              <select
+                class="entry-input form-control mb-2"
+                name="roletypelist"
+                id="roletypelist"
+              >
+                <option value="">- - - Select Role - - -</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 text-center mt-1">
+              <button
+                id="addBtn"
+                name="addBtn"
+                class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm w-75"
+              >
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <div class="row mb4">
+        <div class="col-md-3">
+          <h6 class="m-0 font-weight-bold table-title">Users Table</h6>
+        </div>
+        <div class="col-md-6">
+          <input
+            id="search"
+            name="search"
+            type="text"
+            class="form-control"
+            placeholder="Search Fullname"
+            aria-label="search"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="users-table"
+          width="100%"
+          cellspacing="10"
+        >
+          <thead>
+            <tr>
+              <th class="col-1 text-start">ID</th>
+              <th class="col-3 text-center">Fullname</th>
+              <th class="col-1 text-center">Username</th>
+              <th class="col-3 text-center">Password</th>
+              <th class="col-1 text-center">Access Type</th>
+              <th class="col-1 text-center">Role Type</th>
+              <th class="col-1 text-center">Status</th>
+              <th class="col-3 text-center">Created by</th>
+              <th class="col-2 text-center">Created date</th>
+              <th class="col-2 text-end">Action</th>
+            </tr>
+          </thead>
+
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade bd-example-modal-lg"
+  id="userModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  data-keyboard="false"
+  data-backdrop="static"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Role Name</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-2">
+          <div class="col-lg-12">
+            <div class="card-body">
+              <div class="row mb-2">
+                <div class="col-md-6">
+                  <label class="form-label" for="fullnamemodal">Fullname</label>
+                  <input
+                    id="fullnamemodal"
+                    name="fullnamemodal"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter New Fullname"
+                    aria-label="fullnamemodal"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col-md-6">
+                  <label class="form-label" for="usernamemodal">Username</label>
+                  <input
+                    id="usernamemodal"
+                    name="usernamemodal"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Username"
+                    aria-label="usernamemodal"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="passwordmodal">Password</label>
+                  <input
+                    id="passwordmodal"
+                    name="passwordmodal"
+                    type="passwordmodal"
+                    class="form-control"
+                    placeholder="Enter New Password"
+                    aria-label="passwordmodal"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col-md-6">
+                  <label class="form-label" for="accesstypelistmodal"
+                    >Access Type</label
+                  >
+                  <select
+                    class="entry-input form-control mb-2"
+                    name="accesstypelistmodal"
+                    id="accesstypelistmodal"
+                  >
+                    <option value="">- - - Select New Access - - -</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label" for="roletypelistmodal"
+                    >Role Type</label
+                  >
+                  <select
+                    class="entry-input form-control mb-2"
+                    name="roletypelistmodal"
+                    id="roletypelistmodal"
+                  >
+                    <option value="">- - - Select New Role - - -</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm"
+          data-dismiss="modal"
+        >
+          <i class="fa fa-times" aria-hidden="true"></i> Close
+        </button>
+        <button
+          type="button"
+          id="saveBtn"
+          class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm"
+        >
+          <i class="fa fa-check" aria-hidden="true"></i> Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
