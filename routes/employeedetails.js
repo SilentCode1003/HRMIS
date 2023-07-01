@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+require('dotenv');
 
 const mysql = require("./repository/hrmisdb");
 const helper = require("./repository/customhelper");
@@ -8,7 +9,7 @@ const dictionary = require("./repository/dictionary");
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("employeedetails", {
-    title: "HRMIS",
+    title: process.env._TITLE,
     username: "",
     fullname: "DEV42",
     roletype: "Admin",
@@ -113,7 +114,7 @@ router.post("/save", (req, res) => {
   }
 });
 
-router.post("/edit", (req, res) => {
+router.post("/edit", (req, res) => { // waiting for modal design
   try {
     let departmentnamemodal = req.body.departmentnamemodal;
     let departmentcode = req.body.departmentcode;
@@ -121,10 +122,10 @@ router.post("/edit", (req, res) => {
     let data = [departmentnamemodal, departmentcode];
 
     let sql_Update = `UPDATE employee_details 
-                     SET md_departmentname = ?
-                     WHERE md_departmentcode = ?`;
+                     SET ed_departmentname = ?
+                     WHERE ed_departmentcode = ?`;
 
-    let sql_check = `SELECT * FROM employee_details WHERE md_departmentcode='${departmentcode}'`;
+    let sql_check = `SELECT * FROM employee_details WHERE ed_departmentcode='${departmentcode}'`;
 
     console.log(data);
 
@@ -164,8 +165,8 @@ router.post("/status", (req, res) => {
     let data = [status, departmentcode];
 
     let sql_Update = `UPDATE employee_details 
-                     SET md_status = ?
-                     WHERE md_departmentcode = ?`;
+                     SET ed_status = ?
+                     WHERE ed_employeeid = ?`;
 
     console.log(data);
 

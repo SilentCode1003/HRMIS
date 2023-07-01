@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+require('dotenv');
 
 const mysql = require("./repository/hrmisdb");
 const helper = require("./repository/customhelper");
@@ -8,8 +9,8 @@ const dictionary = require("./repository/dictionary");
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("accesstype", {
-    title: "HRMIS",
-    username: "",
+    title: process.env._TITLE,
+    username: "TEST",
     fullname: "DEV42",
     roletype: "Admin",
     accesstype: "DEVELOPER",
