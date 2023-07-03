@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-require('dotenv');
+require("dotenv");
 
 const mysql = require("./repository/hrmisdb");
 const helper = require("./repository/customhelper");
@@ -8,7 +8,7 @@ const dictionary = require("./repository/dictionary");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("employeedetails", {
+  res.render("employeeeducation", {
     title: process.env._TITLE,
     username: "",
     fullname: "DEV42",
@@ -21,8 +21,8 @@ module.exports = router;
 
 router.get("/load", (req, res) => {
   try {
-    let sql = `select * from master_department`;
-    mysql.Select(sql, "MasterDepartment", (err, result) => {
+    let sql = `select * from employee_education`;
+    mysql.Select(sql, "EmployeeEducation", (err, result) => {
       if (err) console.error("Error: ", err);
 
       console.log(result);
@@ -35,19 +35,36 @@ router.get("/load", (req, res) => {
 
 router.post("/save", (req, res) => {
   try {
-    let departmentname = req.body.departmentname;
+    let employeeid = req.body.employeeid;
+    let degree = req.body.degree;
+    let fieldofstudy = req.body.fieldofstudy;
+    let institution = req.body.institution;
+    let graduationdate = req.body.graduationdate;
     let status = dictionary.GetValue(dictionary.ACT());
     let createdby = "DEV42";
     let createddate = helper.GetCurrentDatetime();
-    let master_department = [];
+    let employee_education = [];
 
-    master_department.push([departmentname, status, createdby, createddate]);
-    mysql.InsertTable("master_department", master_department, (err, result) => {
-      if (err) console.error("Error: ", err);
+    employee_education.push([
+      employeeid,
+      degree,
+      fieldofstudy,
+      institution,
+      graduationdate,
+      status,
+      createdby,
+      createddate,
+    ]);
+    mysql.InsertTable(
+      "employee_education",
+      employee_education,
+      (err, result) => {
+        if (err) console.error("Error: ", err);
 
-      console.log(result);
-      res.json({ msg: "success" });
-    });
+        console.log(result);
+        res.json({ msg: "success" });
+      }
+    );
   } catch (error) {
     res.json({ msg: error });
   }
@@ -60,15 +77,16 @@ router.post("/edit", (req, res) => {
 
     let data = [departmentnamemodal, departmentcode];
 
-    let sql_Update = `UPDATE master_department 
-                     SET md_departmentname = ?
-                     WHERE md_departmentcode = ?`;
+    let sql_Update = `UPDATE employee_education 
+                     SET ee_departmentname = ?
+                     WHERE employeeid = ?`;
 
-    let sql_check = `SELECT * FROM master_department WHERE md_departmentcode='${departmentcode}'`;
+    let sql_check = `SELECT * FROM employee_education WHERE employeeid='${departmentcode}'`;
 
     console.log(data);
 
-    mysql.Select(sql_check, "MasterDepartment", (err, result) => {
+    mysql.Select(sql_check, "EmployeeEducation", (err, result) => {
+      // waiting for modal design
       if (err) console.error("Error: ", err);
 
       if (result.length != 1) {
@@ -103,9 +121,9 @@ router.post("/status", (req, res) => {
         : dictionary.GetValue(dictionary.ACT());
     let data = [status, departmentcode];
 
-    let sql_Update = `UPDATE master_department 
-                     SET md_status = ?
-                     WHERE md_departmentcode = ?`;
+    let sql_Update = `UPDATE employee_education 
+                     SET ee_status = ?
+                     WHERE employeeid = ?`;
 
     console.log(data);
 
