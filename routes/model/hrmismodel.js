@@ -110,7 +110,7 @@ exports.EmployeeDetails = (data) => {
       gender: key.ed_gender,
       dateofbirth: key.ed_dateofbirth,
       address: key.ed_address,
-      contactnumber: key.ed_contactnumber,
+      contactnumber: key.ed_cellphonenumber,
       email: key.ed_email,
       nationality: key.ed_nationality,
       maritalstatus: key.ed_maritalstatus,

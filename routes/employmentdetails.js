@@ -8,7 +8,7 @@ const dictionary = require("./repository/dictionary");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("employeedetails", {
+  res.render("employmentdetails", {
     title: process.env._TITLE,
     username: "",
     fullname: "DEV42",
@@ -22,7 +22,7 @@ module.exports = router;
 router.get("/load", (req, res) => {
   try {
     let sql = `select * from employement_details`;
-    mysql.Select(sql, "EmploymentDetails", (err, result) => {
+    mysql.Select(sql, "EmployementDetails", (err, result) => {
       if (err) console.error("Error: ", err);
 
       console.log(result);
