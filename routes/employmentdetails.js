@@ -46,29 +46,45 @@ router.post("/save", (req, res) => {
     let createdby = "DEV42";
     let createddate = helper.GetCurrentDatetime();
     let employment_details = [];
+    let sql_check = `select * from employment_details where emd_employeeid='${employeeid}'`;
 
-    employment_details.push([
-      employeeid,
-      department,
-      dateofhire,
-      employmentstatus,
-      salary,
-      probationperiod,
-      performancereviewschedule,
-      status,
-      createdby,
-      createddate,
-    ]);
-    mysql.InsertTable(
-      "employment_details",
-      employment_details,
-      (err, result) => {
-        if (err) console.error("Error: ", err);
+    mysql
+      .isDataExist(sql_check, "EmploymentDetails")
+      .then((result) => {
+        if (result) {
+          return res.json({
+            msg: "duplicate",
+          });
+        } else {
+          employment_details.push([
+            employeeid,
+            department,
+            dateofhire,
+            employmentstatus,
+            salary,
+            probationperiod,
+            performancereviewschedule,
+            status,
+            createdby,
+            createddate,
+          ]);
+          mysql.InsertTable(
+            "employment_details",
+            employment_details,
+            (err, result) => {
+              if (err) console.error("Error: ", err);
 
-        console.log(result);
-        res.json({ msg: "success" });
-      }
-    );
+              console.log(result);
+              res.json({ msg: "success" });
+            }
+          );
+        }
+      })
+      .catch((error) => {
+        res.json({
+          msg: error,
+        });
+      });
   } catch (error) {
     res.json({ msg: error });
   }
