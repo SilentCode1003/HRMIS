@@ -45,18 +45,18 @@ router.post("/save", (req, res) => {
     let status = dictionary.GetValue(dictionary.ACT());
     let createdby = "DEV42";
     let createddate = helper.GetCurrentDatetime();
-    let employment_details = [];
-    let sql_check = `select * from employment_details where emd_employeeid='${employeeid}'`;
+    let employement_details = [];
+    let sql_check = `select * from employement_details where emd_employeeid='${employeeid}'`;
 
     mysql
-      .isDataExist(sql_check, "EmploymentDetails")
+      .isDataExist(sql_check, "EmployementDetails")
       .then((result) => {
         if (result) {
           return res.json({
             msg: "duplicate",
           });
         } else {
-          employment_details.push([
+          employement_details.push([
             employeeid,
             department,
             dateofhire,
@@ -69,8 +69,8 @@ router.post("/save", (req, res) => {
             createddate,
           ]);
           mysql.InsertTable(
-            "employment_details",
-            employment_details,
+            "employement_details",
+            employement_details,
             (err, result) => {
               if (err) console.error("Error: ", err);
 
@@ -98,11 +98,11 @@ router.post("/edit", (req, res) => {
 
     let data = [departmentnamemodal, departmentcode];
 
-    let sql_Update = `UPDATE employment_details 
+    let sql_Update = `UPDATE employement_details 
                      SET emd_departmentname = ?
                      WHERE emd_departmentcode = ?`;
 
-    let sql_check = `SELECT * FROM employment_details WHERE emd_departmentcode='${departmentcode}'`;
+    let sql_check = `SELECT * FROM employement_details WHERE emd_departmentcode='${departmentcode}'`;
 
     console.log(data);
 
