@@ -37,7 +37,7 @@ router.post("/save", (req, res) => {
   try {
     let idtypename = req.body.idtypename;
     let status = dictionary.GetValue(dictionary.ACT());
-    let createdby = req.session.fullname;
+    let createdby = 'Joseph Orencio';
     let createddate = helper.GetCurrentDatetime();
     let master_id_type = [];
 

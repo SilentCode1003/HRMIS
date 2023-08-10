@@ -41,7 +41,7 @@ router.post("/save", (req, res) => {
     let philhealth = req.body.philhealth;
     let tinid = req.body.tinid;
     let status = dictionary.GetValue(dictionary.ACT());
-    let createdby = req.session.fullname;
+    let createdby = 'Joseph Orencio';
     let createddate = helper.GetCurrentDatetime();
     let employee_government_id = [];
     let sql_check = `select * from employee_government_id where egi_employeeid='${employeeid}'`;

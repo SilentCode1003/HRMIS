@@ -40,7 +40,7 @@ router.post("/save", (req, res) => {
     let relationship = req.body.relationship;
     let contactinfo = req.body.contactinfo;
     let status = dictionary.GetValue(dictionary.ACT());
-    let createdby = req.session.fullname;
+    let createdby = 'Joseph Orencio';
     let createddate = helper.GetCurrentDatetime();
     let employee_reference = [];
     let sql_check = `select * from employee_reference where er_employeeid='${employeeid}'`;

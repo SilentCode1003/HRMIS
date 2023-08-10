@@ -43,7 +43,7 @@ router.post("/save", (req, res) => {
     let probationperiod = req.body.probationperiod;
     let performancereviewschedule = req.body.performancereviewschedule;
     let status = dictionary.GetValue(dictionary.ACT());
-    let createdby = req.session.fullname;
+    let createdby = 'Joseph Orencio';
     let createddate = helper.GetCurrentDatetime();
     let employement_details = [];
     let sql_check = `select * from employement_details where emd_employeeid='${employeeid}'`;

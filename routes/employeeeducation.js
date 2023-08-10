@@ -41,7 +41,7 @@ router.post("/save", (req, res) => {
     let institution = req.body.institution;
     let graduationdate = req.body.graduationdate;
     let status = dictionary.GetValue(dictionary.ACT());
-    let createdby = req.session.fullname;
+    let createdby = 'Joseph Orencio';
     let createddate = helper.GetCurrentDatetime();
     let employee_education = [];
     let sql_check = `select * from employee_education where ee_employeeid='${employeeid}'`;

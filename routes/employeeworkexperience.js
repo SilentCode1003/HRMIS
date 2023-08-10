@@ -42,7 +42,7 @@ router.post("/save", (req, res) => {
     let enddate = req.body.enddate;
     let jobdescription = req.body.jobdescription;
     let status = dictionary.GetValue(dictionary.ACT());
-    let createdby = req.session.fullname;
+    let createdby = 'Joseph Orencio';
     let createddate = helper.GetCurrentDatetime();
     let employee_work_experience = [];
     let sql_check = `select * from employee_work_experience where ewe_employeeid='${employeeid}'`;
