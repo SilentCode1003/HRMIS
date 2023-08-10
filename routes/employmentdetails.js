@@ -10,8 +10,8 @@ const dictionary = require("./repository/dictionary");
 router.get("/", function (req, res, next) {
   res.render("employmentdetails", {
     title: process.env._TITLE,
-    username: "",
-    fullname: "DEV42",
+    username: "DEV42",
+    fullname: 'Joseph Orencio',
     roletype: "Admin",
     accesstype: "DEVELOPER",
   });
@@ -43,7 +43,7 @@ router.post("/save", (req, res) => {
     let probationperiod = req.body.probationperiod;
     let performancereviewschedule = req.body.performancereviewschedule;
     let status = dictionary.GetValue(dictionary.ACT());
-    let createdby = "DEV42";
+    let createdby = req.session.fullname;
     let createddate = helper.GetCurrentDatetime();
     let employement_details = [];
     let sql_check = `select * from employement_details where emd_employeeid='${employeeid}'`;

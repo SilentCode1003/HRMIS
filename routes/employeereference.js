@@ -10,8 +10,8 @@ const dictionary = require("./repository/dictionary");
 router.get("/", function (req, res, next) {
   res.render("employeereference", {
     title: process.env._TITLE,
-    username: "",
-    fullname: "DEV42",
+    username: "DEV42",
+    fullname: 'Joseph Orencio',
     roletype: "Admin",
     accesstype: "DEVELOPER",
   });
@@ -40,7 +40,7 @@ router.post("/save", (req, res) => {
     let relationship = req.body.relationship;
     let contactinfo = req.body.contactinfo;
     let status = dictionary.GetValue(dictionary.ACT());
-    let createdby = "DEV42";
+    let createdby = req.session.fullname;
     let createddate = helper.GetCurrentDatetime();
     let employee_reference = [];
     let sql_check = `select * from employee_reference where er_employeeid='${employeeid}'`;

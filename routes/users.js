@@ -11,8 +11,8 @@ const crypt = require("./repository/cryptography");
 router.get("/", function (req, res, next) {
   res.render("users", {
     title: process.env._TITLE,
-    username: "",
-    fullname: "DEV42",
+    username: "DEV42",
+    fullname: 'Joseph Orencio',
     roletype: "Admin",
     accesstype: "DEVELOPER",
   });
@@ -49,7 +49,7 @@ router.post("/save", (req, res) => {
     let roletype = req.body.roletype;
     let accesstype = req.body.accesstype;
     let status = dictionary.GetValue(dictionary.ACT());
-    let createdby = "DEV42";
+    let createdby = req.session.fullname;
     let createddate = helper.GetCurrentDatetime();
     let master_user = [];
 

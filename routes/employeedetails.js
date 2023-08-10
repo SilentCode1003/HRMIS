@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-require('dotenv');
+require("dotenv");
 
 const mysql = require("./repository/hrmisdb");
 const helper = require("./repository/customhelper");
@@ -10,8 +10,8 @@ const dictionary = require("./repository/dictionary");
 router.get("/", function (req, res, next) {
   res.render("employeedetails", {
     title: process.env._TITLE,
-    username: "",
-    fullname: "DEV42",
+    username: "DEV42",
+    fullname: 'Joseph Orencio',
     roletype: "Admin",
     accesstype: "DEVELOPER",
   });
@@ -48,7 +48,7 @@ router.post("/save", (req, res) => {
     let emergencycontactname = req.body.emergencycontactname;
     let emergencycontactnumber = req.body.emergencycontactnumber;
     let status = dictionary.GetValue(dictionary.ACT());
-    let createdby = "DEV42";
+    let createdby = req.session.fullname;
     let createddate = helper.GetCurrentDatetime();
     let employee_details = [];
     let currentcount = 0;
@@ -58,7 +58,7 @@ router.post("/save", (req, res) => {
     let sql_check_dup = `select * from employee_details where ed_firstname='${firstname}' and ed_middlename='${middlename}' and ed_lastname='${lastname}'`;
 
     mysql
-      .isDataExist(sql_check_dup,'EmployeeDetails')
+      .isDataExist(sql_check_dup, "EmployeeDetails")
       .then((result) => {
         if (result) {
           return res.json({
@@ -114,7 +114,8 @@ router.post("/save", (req, res) => {
   }
 });
 
-router.post("/edit", (req, res) => { // waiting for modal design
+router.post("/edit", (req, res) => {
+  // waiting for modal design
   try {
     let departmentnamemodal = req.body.departmentnamemodal;
     let departmentcode = req.body.departmentcode;
